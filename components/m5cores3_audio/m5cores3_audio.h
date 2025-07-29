@@ -15,7 +15,7 @@ class I2SAudioIn : public Parented<M5CoreS3AudioComponent> {};
 
 class I2SAudioOut : public Parented<M5CoreS3AudioComponent> {};
 
-class M5CoreS3AudioComponent : public Component {
+class M5CoreS3AudioComponent : public audio::AudioBackend {
  public:
   void setup() override;
 

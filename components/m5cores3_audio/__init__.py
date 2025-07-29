@@ -15,6 +15,8 @@ from esphome.components import audio
 
 CODEOWNERS = ["@jesserockz"]
 DEPENDENCIES = ["esp32"]
+
+CONF_ID = "m5cores3_audio"
 MULTI_CONF = True
 
 CONF_I2S_DOUT_PIN = "i2s_dout_pin"
@@ -43,7 +45,7 @@ I2S_PORTS = {
 
 CONFIG_SCHEMA = audio.AUDIO_BACKEND_SCHEMA.extend(
     {
-        cv.GenerateID(): cv.declare_id(I2SAudioComponent),
+        cv.GenerateID(): cv.declare_id(M5CoreS3Audio),
         vol.Required("max_channels"): cv.positive_int,
         cv.Optional(CONF_I2S_LRCLK_PIN): pins.internal_gpio_output_pin_number,
         cv.Optional(CONF_I2S_BCLK_PIN): pins.internal_gpio_output_pin_number,
