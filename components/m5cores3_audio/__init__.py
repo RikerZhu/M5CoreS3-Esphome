@@ -11,7 +11,7 @@ M5CoreS3Audio = m5cores3_audio_ns.class_("M5CoreS3Audio", cg.Component, audio.Au
 
 CONFIG_SCHEMA = audio.AUDIO_BACKEND_SCHEMA.extend({
     cv.GenerateID(): cv.declare_id(M5CoreS3Audio),
-    cv.Required(CONF_MAX_CHANNELS): cv.int_range(min=1, max=2),
+    cv.Required(1): cv.int_range(min=1, max=2),
 })
 
 async def to_code(config):
