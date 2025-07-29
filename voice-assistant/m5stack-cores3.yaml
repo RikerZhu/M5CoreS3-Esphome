@@ -254,9 +254,13 @@ display:
 # 
 # Audio
 # 
+audio:
+  id: audio_backend
+  platform: m5cores3_audio
+  max_channels: 1
+
 board_m5cores3:
 m5cores3_audio:
-  max_channels: 1
   id: m5cores3_audio_1
 
 microphone:
