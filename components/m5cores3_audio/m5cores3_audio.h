@@ -19,6 +19,19 @@ class M5CoreS3AudioComponent : public Component {
  public:
   void setup() override;
 
+    AudioInput *get_input(uint8_t channel) override {
+    return this->input_;
+  }
+
+  AudioOutput *get_output(uint8_t channel) override {
+    return this->output_;
+  }
+
+ protected:
+  AudioInput *input_;
+  AudioOutput *output_;
+
+
   i2s_pin_config_t get_pin_config() const {
     return {
         .mck_io_num = this->mclk_pin_,

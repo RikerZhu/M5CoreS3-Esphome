@@ -11,6 +11,7 @@ from esphome.components.esp32.const import (
     VARIANT_ESP32S3,
     VARIANT_ESP32C3,
 )
+from esphome.components import audio
 
 CODEOWNERS = ["@jesserockz"]
 DEPENDENCIES = ["esp32"]
@@ -40,9 +41,10 @@ I2S_PORTS = {
     VARIANT_ESP32C3: 1,
 }
 
-CONFIG_SCHEMA = cv.Schema(
+CONFIG_SCHEMA = audio.AUDIO_BACKEND_SCHEMA.extend(
     {
         cv.GenerateID(): cv.declare_id(I2SAudioComponent),
+        vol.Required("max_channels"): cv.positive_int,
         cv.Optional(CONF_I2S_LRCLK_PIN): pins.internal_gpio_output_pin_number,
         cv.Optional(CONF_I2S_BCLK_PIN): pins.internal_gpio_output_pin_number,
         cv.Optional(CONF_I2S_MCLK_PIN): pins.internal_gpio_output_pin_number,
@@ -66,7 +68,7 @@ FINAL_VALIDATE_SCHEMA = _final_validate
 
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
-    await cg.register_component(var, config)
+    await cg.register_audio_backend(var, config)
 
     # cg.add(var.set_lrclk_pin(config[CONF_I2S_LRCLK_PIN]))
     if CONF_I2S_LRCLK_PIN in config:
