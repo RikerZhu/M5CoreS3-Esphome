@@ -32,8 +32,8 @@ esphome:
   platformio_options:
     board_build.f_cpu : 240000000L
   libraries:
-    - m5stack/M5GFX@^0.1.11
-    - m5stack/M5Unified@^0.1.11
+    - m5stack/M5GFX
+    - m5stack/M5Unified
   on_boot:
       priority: 600
       then: 
@@ -47,7 +47,7 @@ esphome:
               - script.execute: draw_display
 
 esp32:
-  board: esp32-s3-devkitc-1
+  board: m5stack-cores3
   flash_size: 16MB
   framework:
     type: arduino
