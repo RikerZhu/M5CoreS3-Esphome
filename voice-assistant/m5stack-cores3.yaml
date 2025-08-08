@@ -53,7 +53,7 @@ esp32:
     type: arduino
 
 psram:
-  mode: octal
+  mode: quad
   speed: 80MHz
 
 external_components:
