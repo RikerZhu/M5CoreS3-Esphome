@@ -79,7 +79,7 @@ api:
 ota:
   - platform: esphome
     # Replace the key by your OTA key
-    password: "17oOUf7aiw5+eXSC1AlaoDBRyGy7H7vfp+f4qEcsmTM="
+    password: "881bf72863f75092ba4cb96d9429a0c6"
 
 wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
